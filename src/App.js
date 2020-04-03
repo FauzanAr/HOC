@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { reduxForm, Field } from 'redux-form';
 import logo from './logo.svg';
 import './App.css';
@@ -114,13 +114,13 @@ const validate = val => {
 };
 
 const renderField = ({ input, label, type, meta: {touched, error, warning } }) => {
-  <div>
+  return (<div>
     <div className = "control">
       <label className = "field">{label}</label>
       <input className = "input" {...input} placeholder = {label} type = {type}/>
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
-  </div>
+  </div>)
 };
 
 SignInForm = reduxForm({
